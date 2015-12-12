@@ -2,24 +2,10 @@
 var express= require('express');
 //var exp = require('./app.js');
 var app = express();
+var middleware= require('./middleware.js');
 
-var middleware = {
-   
-   requireAuthentication : function(req, res, next)
-   {
-	   console.log('Private route hit..');
-	   next();
-   },
-   logger: function(req,res,next)
-   {
-	   
-	   console.log('Request' + req.method + req.originalurl);
-	   console.log(new Date().toString());
-	   next();
-   }
-   	
- 	
-};
+
+
 
 app.use (middleware.logger);
 
